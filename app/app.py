@@ -6,8 +6,18 @@ from feature_names import feature_names
 
 app = Flask(__name__)
 
-model = joblib.load('../models/skin_disease_model.pkl')
+import os
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(
+    BASE_DIR,
+    '..',
+    'models',
+    'skin_disease_model.pkl'
+)
+
+model = joblib.load(model_path)
 # Disease Mapping
 disease_classes = {
     1: "Psoriasis",
