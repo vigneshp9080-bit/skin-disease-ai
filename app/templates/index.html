@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Skin Disease Prediction AI</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<div class="container">
+
+    <h1>🩺 Skin Disease Prediction AI</h1>
+
+    <p class="subtitle">
+        AI-powered healthcare diagnosis system
+    </p>
+
+    <form action="/predict" method="POST">
+
+        <div class="input-grid">
+
+            {% for feature in features %}
+
+                <select name="{{ feature }}" required>
+
+                    <option value="">
+                        {{ feature.replace('_',' ').title() }}
+                    </option>
+
+                    <option value="0">No</option>
+
+                    <option value="1">Yes</option>
+
+                </select>
+
+            {% endfor %}
+
+        </div>
+
+        <button type="submit">
+
+            Predict Disease
+
+        </button>
+
+    </form>
+
+    {% if prediction_text %}
+
+    <div class="result-card">
+
+        <h2>{{ prediction_text }}</h2>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</div>
+
+</body>
+</html>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
