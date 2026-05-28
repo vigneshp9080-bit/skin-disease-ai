@@ -1,95 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
 
-    font-family:'Poppins',sans-serif;
-
     min-height:100vh;
-
-    background:
-    linear-gradient(
-        135deg,
-        #0f172a,
-        #1e293b,
-        #2563eb
-    );
-
-    overflow-x:hidden;
-}
-
-/* Animated Background */
-
-body::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    background:#38bdf8;
-
-    border-radius:50%;
-
-    top:-200px;
-    left:-150px;
-
-    filter:blur(120px);
-
-    animation:float1 8s infinite alternate;
-}
-
-body::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    background:#9333ea;
-
-    border-radius:50%;
-
-    bottom:-200px;
-    right:-150px;
-
-    filter:blur(120px);
-
-    animation:float2 10s infinite alternate;
-}
-
-@keyframes float1{
-
-    from{
-        transform:translateY(0px);
-    }
-
-    to{
-        transform:translateY(50px);
-    }
-}
-
-@keyframes float2{
-
-    from{
-        transform:translateY(0px);
-    }
-
-    to{
-        transform:translateY(-50px);
-    }
-}
-
-/* Main Layout */
-
-.overlay{
 
     display:flex;
 
@@ -97,13 +17,15 @@ body::after{
 
     align-items:center;
 
-    min-height:100vh;
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #06b6d4
+    );
 
     padding:30px;
-
-    position:relative;
-
-    z-index:1;
 }
 
 .container{
@@ -112,27 +34,25 @@ body::after{
 
     max-width:1000px;
 
-    background:rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(20px);
-
-    border:1px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.1);
 
     border-radius:30px;
 
-    padding:50px;
+    padding:40px;
+
+    backdrop-filter:blur(15px);
 
     box-shadow:
-    0 10px 40px rgba(0,0,0,0.4);
+    0 8px 32px rgba(0,0,0,0.3);
 
-    animation:fadeIn 1.2s ease;
+    animation:fadeIn 1s ease;
 }
 
 @keyframes fadeIn{
 
     from{
         opacity:0;
-        transform:translateY(40px);
+        transform:translateY(30px);
     }
 
     to{
@@ -145,27 +65,23 @@ h1{
 
     color:white;
 
-    font-size:48px;
-
     text-align:center;
 
-    margin-bottom:10px;
+    font-size:42px;
 
-    letter-spacing:1px;
+    margin-bottom:10px;
 }
 
 .subtitle{
 
-    text-align:center;
+    color:#dbeafe;
 
-    color:#cbd5e1;
+    text-align:center;
 
     margin-bottom:40px;
 
     font-size:18px;
 }
-
-/* Inputs */
 
 .input-grid{
 
@@ -178,38 +94,29 @@ h1{
 
 select{
 
-    padding:16px;
+    padding:15px;
 
     border:none;
 
     border-radius:14px;
 
-    background:rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.15);
 
     color:white;
 
-    font-size:16px;
+    font-size:15px;
 
     outline:none;
 
     transition:0.3s;
-
-    backdrop-filter:blur(10px);
 }
 
 select:hover{
 
+    background:rgba(255,255,255,0.22);
+
     transform:translateY(-2px);
-
-    background:rgba(255,255,255,0.18);
 }
-
-select:focus{
-
-    border:2px solid #38bdf8;
-}
-
-/* Button */
 
 button{
 
@@ -234,36 +141,26 @@ button{
 
     font-size:20px;
 
-    font-weight:bold;
+    font-weight:600;
 
     cursor:pointer;
 
-    transition:0.4s;
-
-    box-shadow:
-    0 0 20px rgba(37,99,235,0.5);
+    transition:0.3s;
 }
 
 button:hover{
 
-    transform:translateY(-3px) scale(1.01);
+    transform:scale(1.02);
 
     box-shadow:
-    0 0 35px rgba(6,182,212,0.8);
+    0 0 20px rgba(37,99,235,0.6);
 }
-
-/* Prediction Card */
 
 .result-card{
 
-    margin-top:35px;
+    margin-top:30px;
 
-    background:
-    linear-gradient(
-        135deg,
-        rgba(255,255,255,0.18),
-        rgba(255,255,255,0.08)
-    );
+    background:rgba(255,255,255,0.12);
 
     padding:25px;
 
@@ -289,12 +186,16 @@ button:hover{
     }
 }
 
-.result-card h2{
+.confidence{
 
-    font-size:28px;
+    margin-top:10px;
+
+    color:#7dd3fc;
+
+    font-size:20px;
+
+    font-weight:bold;
 }
-
-/* Responsive */
 
 @media(max-width:768px){
 
@@ -305,11 +206,6 @@ button:hover{
 
     h1{
 
-        font-size:36px;
-    }
-
-    .container{
-
-        padding:30px;
+        font-size:32px;
     }
 }
